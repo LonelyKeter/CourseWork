@@ -1,0 +1,17 @@
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\bin\Debug\BTWLib.pdb
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\obj\Debug\BTWLib.csprojAssemblyReference.cache
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\obj\Debug\BTWLib.Properties.Resources.resources
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\obj\Debug\BTWLib.csproj.GenerateResource.cache
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\obj\Debug\BTWLib.csproj.CoreCompileInputs.cache
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\obj\Debug\BTWLib.pdb
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\bin\Debug\BTWLib.dll.config
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\bin\Debug\BTWLib.dll
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\bin\Debug\Keter.Core.dll
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\bin\Debug\Keter.Native.dll
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\bin\Debug\KeterGraphics.dll
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\bin\Debug\Keter.Core.pdb
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\bin\Debug\Keter.Native.pdb
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\bin\Debug\KeterGraphics.pdb
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\obj\Debug\BTWLib.BTWForm.resources
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\obj\Debug\BTWLib.csproj.CopyComplete
+C:\Users\LonelyKeter\source\repos\CourseWork\BTWLib\obj\Debug\BTWLib.dll
