@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BTWLib
+namespace BTWLib.Types
 {
 	public class BTWPoint
 	{
-		public int X { get; set; }
-		public int Y { get; set; }
+		public int X { get; protected set; }
+		public int Y { get; protected set; }
 
 		public BTWPoint(int X, int Y)
 		{
@@ -25,5 +25,10 @@ namespace BTWLib
 		{
 			return new BTWPoint(left.X - right.X, left.Y - right.Y);
 		} 
+		
+		public BTWPoint GetCopy()
+		{
+			return new BTWPoint(X, Y);
+		}
 	}
 }

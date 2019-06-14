@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTWLib", "BTWLib\BTWLib.csproj", "{71377035-8A5D-46BF-87A8-B8CA98627547}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTW", "WindowsFormsApp1\BTW.csproj", "{98BD278D-B6DC-4138-B1A2-9731E07C00A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTW", "BTW\BTW.csproj", "{98BD278D-B6DC-4138-B1A2-9731E07C00A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

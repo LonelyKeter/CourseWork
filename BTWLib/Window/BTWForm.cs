@@ -13,6 +13,27 @@ namespace BTWLib
 {
 	public partial class BTWForm : Form
 	{
+		#region Fields and properties
+
+
+		#endregion
+
+		#region Events
+		
+		#endregion
+
+		public BTWForm(int Rate)
+		{
+			InitializeComponent();
+
+			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
+			UpdateStyles();
+
+			LoopTimer.Interval = (int)(1000 / Rate);
+		}
+
+		#region Methods
+		#region Drawing
 		[DllImport("user32.dll")]
 		public static extern int SendMessage(IntPtr hWnd, Int32 wMsg, bool wParam, Int32 lParam);
 
@@ -28,11 +49,17 @@ namespace BTWLib
 			SendMessage(this.Handle, WM_SETREDRAW, true, 0);
 			this.Refresh();
 		}
+		#endregion
 
+		#endregion
 
-		public BTWForm()
+		#region Event Handlers
+		private void LoopTimer_Tick(object sender, EventArgs e)
 		{
-			InitializeComponent();
+			this.Refresh();
 		}
+
+
+		#endregion
 	}
 }

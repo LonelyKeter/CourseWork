@@ -4,14 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BTWLib
+namespace BTWLib.Types
 {
 	public class BTWRectangle
 	{
-		public BTWPoint LU { get; protected set; }
+		public BTWPoint LU { get; set; }
 
-		public int Width { get; set; }
-		public int Height { get; set; }
+		public int Width { get; protected set; }
+		public int Height { get; protected set; }
+
+		public BTWRectangle(BTWPoint LU, int width, int height)
+		{
+			this.LU = LU.GetCopy();
+			this.Width = width;
+			this.Height = height;
+		}
 		
 		public int GetLeft()
 		{

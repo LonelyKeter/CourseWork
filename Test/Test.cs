@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BTWLib;
+using BTWLib.Logic;
 using Keter.Core;
 
 namespace Test
@@ -15,20 +16,16 @@ namespace Test
 		/// </summary>
 		static void Main()
 		{
-			BTWLogic LOGIC = new BTWLogic();
-			BTWIO IO = new BTWIO();
+			BTWForm main = new BTWForm();
 
-			LOGIC.IO = IO;
-			IO.LOGIC = LOGIC;
+			IBTWObject o = new m();
 
-			IO.Init();
-			LOGIC.Init();		
+			Application.Run();
+		}
 
-			KTApplication App = new KTApplication(LOGIC, IO, 20);
-
-			App.Init();
-
-			App.Run();
+		class m : BTWUnit
+		{
+			public override uint ID { get { return 0; } }
 		}
 	}
 }
