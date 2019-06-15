@@ -13,3 +13,4 @@ C:\Users\LonelyKeter\source\repos\CourseWork\Test\obj\x64\Release\Test.csproj.Co
 C:\Users\LonelyKeter\source\repos\CourseWork\Test\obj\x64\Release\Test.csproj.CopyComplete
 C:\Users\LonelyKeter\source\repos\CourseWork\Test\obj\x64\Release\Test.exe
 C:\Users\LonelyKeter\source\repos\CourseWork\Test\obj\x64\Release\Test.pdb
+C:\Users\LonelyKeter\source\repos\CourseWork\Test\obj\x64\Release\Test.Tes.resources

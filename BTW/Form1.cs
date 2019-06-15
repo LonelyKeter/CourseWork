@@ -13,7 +13,7 @@ namespace BTW
 {
 	public class Form1 : BTWForm
 	{
-		public Form1() : base()
+		public Form1(int rate) : base(rate)
 		{
 			
 		}

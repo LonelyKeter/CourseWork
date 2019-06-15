@@ -9,10 +9,10 @@ namespace BTW
 {
 	class NormalTank : Tank
 	{
-		public override TankType Type { get { return TankType.Normal; } }
+		public override TankType Type { get; } = TankType.Normal;
 
-		public override uint ID { get { return 0x1000; } }
+		public override uint ID { get; } = (uint)TankId.Normal;
 
-		public NormalTank(TankProperties props, BTWDirection direction) : base(TankProperties.Normal, direction) { }
+		public NormalTank(TankProperties props, BTWDirection direction, int x, int y) : base(TankProperties.Normal, direction, x, y) { }
 	}
 }

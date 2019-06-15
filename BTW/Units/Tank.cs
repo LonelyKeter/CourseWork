@@ -13,6 +13,8 @@ namespace BTW
 	{
 		public abstract TankType Type { get; }
 
+		public bool IsMoving { get; set; }
+
 		public Tank(TankProperties props, BTWDirection direction, int x, int y)
 		{
 			this.MaxHP = props.MaxHP;
@@ -23,5 +25,10 @@ namespace BTW
 			
 			this.Rectangle = new BTWRectangle(new BTWPoint(x,y), props.Width, props.Height);
 		}
+	}
+
+	public enum TankId
+	{
+		Normal = 0x1000,
 	}
 }

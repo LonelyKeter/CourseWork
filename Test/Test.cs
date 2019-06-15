@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using BTWLib;
 using BTWLib.Logic;
 using Keter.Core;
+using System.Diagnostics;
 
 namespace Test
 {
@@ -16,14 +17,11 @@ namespace Test
 		/// </summary>
 		static void Main()
 		{
-			BTWForm main = new BTWForm();
-
-			IBTWObject o = new m();
-
-			Application.Run();
+			Application.EnableVisualStyles();
+			Application.Run(new Tes());
 		}
 
-		class m : BTWUnit
+		class m : BTWObject
 		{
 			public override uint ID { get { return 0; } }
 		}

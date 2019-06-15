@@ -8,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using BTWLib.ControlEvents;
 
 namespace BTWLib
 {
 	public partial class BTWForm : Form
 	{
 		#region Fields and properties
-
-
+		public Queue<BTWEvent> CommandQueue { get; private set; } = new Queue<BTWEvent>();
 		#endregion
 
 		#region Events
-		
+		public event Action LoopTicked;
 		#endregion
 
 		public BTWForm(int Rate)
@@ -51,15 +51,24 @@ namespace BTWLib
 		}
 		#endregion
 
+
+		public void RefreshPublic()
+		{
+			this.Refresh();
+		}
 		#endregion
 
 		#region Event Handlers
 		private void LoopTimer_Tick(object sender, EventArgs e)
 		{
+			LoopTicked?.Invoke();
 			this.Refresh();
-		}
-
-
+		}		
 		#endregion
+
+		private void BTWForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+		{
+			e.IsInputKey = true;
+		}
 	}
 }

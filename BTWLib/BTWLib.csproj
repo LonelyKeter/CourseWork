@@ -77,9 +77,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlEvents\BTWKeyUpEvent.cs" />
+    <Compile Include="ControlEvents\BTWEvent.cs" />
+    <Compile Include="ControlEvents\BTWKeyDownEvent.cs" />
+    <Compile Include="ControlEvents\BTWKeyPressEvent.cs" />
+    <Compile Include="ControlEvents\BTWMouseDownEvent.cs" />
+    <Compile Include="ControlEvents\BTWMouseMoveEvent.cs" />
+    <Compile Include="ControlEvents\BTWMouseUpEvent.cs" />
     <Compile Include="Logic\BTWObject.cs" />
     <Compile Include="Logic\BTWProjectile.cs" />
-    <Compile Include="Logic\BTWTerrain.cs" />
     <Compile Include="Logic\BTWUnit.cs" />
     <Compile Include="Logic\IBTWMovable.cs" />
     <Compile Include="Logic\IBTWObject.cs" />

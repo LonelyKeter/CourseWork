@@ -15,10 +15,10 @@ namespace BTWLib.Logic
 	
 	public enum BTWDirection
 	{
-		None,
-		Up, 
-		Down,
+		None = 0,
+		Up,
+		Dowm,
 		Left,
-		Right,
+		Right
 	}
 }

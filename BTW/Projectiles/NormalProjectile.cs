@@ -9,9 +9,9 @@ namespace BTW
 {
 	class NormalProjectile : Projectile
 	{
-		public override uint ID { get { return 0x7000; } }
+		public override uint ID { get; } = (uint)ProjectileId.Normal;
 
-		public override ProjectileType Type { get; protected set; } = ProjectileType.Normal;
+		public override ProjectileType Type { get; } = ProjectileType.Normal;
 
 		public NormalProjectile(BTWDirection direction) : base(ProjectileProperties.Normal, direction) { }	
 	}

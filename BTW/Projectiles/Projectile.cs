@@ -10,7 +10,7 @@ namespace BTW
 {
 	abstract class Projectile : BTWProjectile
 	{
-		public abstract ProjectileType Type { get; protected set; }
+		public abstract ProjectileType Type { get; }
 
 		public Projectile(ProjectileProperties props, BTWDirection direction) : base (props.X, props.Y, props.Width, props.Height, direction)
 		{
@@ -23,5 +23,10 @@ namespace BTW
 			this.Damage = props.Damage;
 			this.Speed = props.Speed;
 		}
+	}
+
+	public enum ProjectileId
+	{
+		Normal = 0x7000,
 	}
 }
