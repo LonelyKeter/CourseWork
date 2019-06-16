@@ -9,29 +9,31 @@ namespace BTW
 {
 	class Tree<K>
 	{
-		public List<Node<K>> Nodes { get; } = new List<Node<K>>();
+		List<Node<K>> Nodes = new List<Node<K>>();
 
-		public void AddFirstNode(K body)
+		public void AddNode(K body)
 		{
-			Nodes.Add(new Node<K>(body));
+			Nodes.Add(new Node<K>(body, Nodes.Count));
 		}
 
-		public void AddNode(K body, int targetNode, BTWDirection direction)
-		{
-			Node<K> Result = new Node<K>(body);
-			Nodes.Add(Result);
-			Nodes[targetNode][direction].Add(Result);
+		public void LinkNode(int node, int targetNode, BTWDirection direction)
+		{			
+			Nodes[targetNode][direction].Add(Nodes[node]);
 		}
+
+		public Node<K> this[int index] { get { return Nodes[index]; } }
 
 		public class Node<T>
 		{
 			public T Body { get; set; }
+			public int Id { get; set; }
 
 			List<Node<T>>[] Nodes = new List<Node<T>>[4];
 
-			public Node(T body)
+			public Node(T body, int id)
 			{
 				Body = body;
+				Id = id;
 
 				for (int i = 0; i < 4; i++) Nodes[i] = new List<Node<T>>();
 			}

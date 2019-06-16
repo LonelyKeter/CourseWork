@@ -16,6 +16,6 @@ namespace BTWLib.Logic
 
 		uint ID { get; }
 
-		bool Collides(BTWObject _object);		
+		int Overlapses(BTWObject _object);		
 	}
 }

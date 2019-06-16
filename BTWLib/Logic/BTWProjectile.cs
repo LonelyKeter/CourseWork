@@ -37,7 +37,7 @@ namespace BTWLib.Logic
 			this.Direction = direction;
 		}
 
-		public object Clone()
+		public virtual object Clone()
 		{
 			return this.MemberwiseClone();
 		}

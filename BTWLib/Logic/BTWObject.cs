@@ -16,15 +16,7 @@ namespace BTWLib.Logic
 		public int Height { get { return Rectangle.Height; } }
 
 		public abstract uint ID { get; }
-
-		public bool Collides(BTWObject _object)
-		{
-			BTWPoint difference = this.Pos - _object.Pos;
-
-			if (Abs(difference.X) >= (_object.Width + this.Width)) return false;
-			if (Abs(difference.Y) >= (_object.Height + this.Height)) return false;
-			return true;					
-		}
+		
 		public int Overlapses(BTWObject _object)
 		{
 			int Fun(int a, int b, int x, int y)
@@ -38,7 +30,6 @@ namespace BTWLib.Logic
 			int Y = Fun(this.Pos.Y, this.Pos.Y + this.Height, _object.Pos.Y, _object.Pos.Y + _object.Width);
 
 			if (X < 0 || Y < 0) return -1;
-			if (X == 0 && Y == 0) return -1;
 
 			return X * Y;
 		}

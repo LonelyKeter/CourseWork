@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BTWLib.Logic;
+using BTWLib.Types;
 
 namespace BTW
 {
-	public struct PlayerState
+	class UnitState
 	{
-		public bool MovingXP;
-		public bool MovingXN;
-		public bool MovingYP;
-		public bool MovingYN;
+		public BTWDirection Direction;
+		public BTWPoint Pos;
 	}
 }

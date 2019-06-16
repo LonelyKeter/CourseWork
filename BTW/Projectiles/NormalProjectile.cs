@@ -13,6 +13,14 @@ namespace BTW
 
 		public override ProjectileType Type { get; } = ProjectileType.Normal;
 
-		public NormalProjectile(BTWDirection direction) : base(ProjectileProperties.Normal, direction) { }	
+		public NormalProjectile(BTWDirection direction) : base(ProjectileProperties.Normal, direction) { }
+
+		public override object Clone()
+		{
+			return new NormalProjectile(Direction) {
+				Damage = this.Damage,
+				Speed = this.Speed,
+			}; 
+		}
 	}
 }

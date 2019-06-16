@@ -69,6 +69,6 @@ namespace BTWLib
 		private void BTWForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
 		{
 			e.IsInputKey = true;
-		}
+		}		
 	}
 }

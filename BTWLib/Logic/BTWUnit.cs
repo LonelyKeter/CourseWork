@@ -36,20 +36,20 @@ namespace BTWLib.Logic
 		public IBTWProjectile Shoot(BTWDirection direction)
 		{
 			IBTWProjectile result = (IBTWProjectile)Projectile.Clone();
-			result.Direction = this.Direction;
+			result.Direction = direction;
 			switch (direction)
 			{
 				case BTWDirection.Down:
-					result.Pos = this.Pos + new BTWPoint(this.Width / 2, this.Height + 1);
+					result.Pos = this.Pos + new BTWPoint(this.Width / 2 - result.Width/2, this.Height + 1);
 					break;
 				case BTWDirection.Up:
-					result.Pos = this.Pos + new BTWPoint(this.Width / 2, -1);
+					result.Pos = this.Pos + new BTWPoint(this.Width / 2 - result.Width / 2, -1);
 					break;
 				case BTWDirection.Left:
-					result.Pos = this.Pos + new BTWPoint(-1, this.Height / 2);
+					result.Pos = this.Pos + new BTWPoint(-1, this.Height / 2 - result.Height / 2);
 					break;
 				case BTWDirection.Right:
-					result.Pos = this.Pos + new BTWPoint(this.Width + 1, this.Height / 2);
+					result.Pos = this.Pos + new BTWPoint(this.Width + 1, this.Height / 2 - result.Height / 2);
 					break;
 			}
 			return result;

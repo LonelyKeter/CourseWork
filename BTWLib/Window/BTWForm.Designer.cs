@@ -45,7 +45,6 @@
 			this.ClientSize = new System.Drawing.Size(1280, 720);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.Name = "BTWForm";
 			this.Text = "BTW";
 			this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.BTWForm_PreviewKeyDown);

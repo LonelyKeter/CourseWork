@@ -17,8 +17,8 @@ namespace BTWLib.Logic
 	{
 		None = 0,
 		Up,
-		Dowm,
-		Left,
-		Right
+		Right,
+		Down,
+		Left
 	}
 }

@@ -17,7 +17,7 @@ namespace BTW
 		public int Width;
 		public int Height;
 
-		public static ProjectileProperties Normal = new ProjectileProperties() { Speed = 10, Damage = 4, X = 0, Y = 0, Width = 10, Height = 10 };
+		public static ProjectileProperties Normal = new ProjectileProperties() { Speed = 6, Damage = 4, X = 0, Y = 0, Width = 10, Height = 10 };
 	}
 
 	enum ProjectileType

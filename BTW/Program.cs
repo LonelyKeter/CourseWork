@@ -19,12 +19,34 @@ namespace BTW
 		[STAThread]
 		static void Main()
 		{
-			Console.WriteLine(Fun(0, 4, 2, 6));
-			Console.WriteLine(Fun(2, 6, 4, 0));
-			Console.WriteLine(Fun(0, 6, 4, 2));
-			Console.WriteLine(Fun(4, 2, 0, 6));
-			Console.WriteLine(Fun(0, 3, 4, 7));
+			LoopHandler handler = new LoopHandler();
+			handler.CurrentKeyDown += handler.GameKeyDown;
+			handler.CurrentKeyUp += handler.GameKeyUp;
+			handler.CurruntOnPaint += handler.GameOnPaint;
+			handler.CurrentLoopHandler = handler.GameLoopHandler;
 
+			handler.Map.AddNode(new Space(50,50,600, 600));
+
+			NormalTank tank = new NormalTank(TankProperties.Normal, BTWDirection.Up, 400, 400);
+			tank.Texture = Textures.NormalTank_1;
+			handler.Player = new Player(tank , 0, 30);
+
+			Bitmap MapText = new Bitmap(1280, 720);
+			Graphics g = Graphics.FromImage(MapText);
+			g.DrawRectangle(Pens.Green, 0, 0, 50, 700);
+			g.DrawRectangle(Pens.Green, 0, 0, 700, 50);
+			g.DrawRectangle(Pens.Green, 650, 0, 50, 700);
+			g.DrawRectangle(Pens.Green, 0, 650, 700, 50);
+			handler.MapTexture = MapText;
+
+			form = new Form1(120);
+
+			form.KeyDown += handler.CurrentKeyDown;
+			form.KeyUp += handler.CurrentKeyUp;
+			form.Paint += handler.CurruntOnPaint;
+			form.LoopTicked += handler.CurrentLoopHandler;
+
+			Application.Run(form);
 		}
 
 		static int Fun(int a, int b, int x, int y)

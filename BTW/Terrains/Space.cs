@@ -11,5 +11,10 @@ namespace BTW
 	class Space : BTWObject
 	{
 		public override uint ID { get; } = 0x3000;
+
+		public Space(int x, int y, int width, int height) : base(x, y, width, height)
+		{
+			
+		}
 	}
 }

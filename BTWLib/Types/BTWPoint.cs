@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace BTWLib.Types
 {
@@ -25,6 +26,15 @@ namespace BTWLib.Types
 		{
 			return new BTWPoint(left.X - right.X, left.Y - right.Y);
 		} 
+
+		public static implicit operator BTWPoint(Point e)
+		{
+			return new BTWPoint(e.X, e.Y);
+		}
+		public static implicit operator Point(BTWPoint e)
+		{
+			return new Point(e.X, e.Y);
+		}
 		
 		public BTWPoint GetCopy()
 		{

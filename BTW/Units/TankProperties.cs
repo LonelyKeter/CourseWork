@@ -14,13 +14,15 @@ namespace BTW
 		public int Speed;
 		public int Width;
 		public int Height;
+		public int ShotCooldown;
 
 		public static TankProperties Normal = new TankProperties() {
 			MaxHP = 10,
 			Projectile = new NormalProjectile(BTWDirection.None),
-			Speed = 20,
-			Width = 80,
-			Height = 80,
+			Speed = 2,
+			Width = 50,
+			Height = 50,
+			ShotCooldown = 30,
 		};
 	}
 

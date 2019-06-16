@@ -15,6 +15,10 @@ namespace BTW
 
 		public bool IsMoving { get; set; }
 
+		public int ShotCooldown { get; set; }
+
+		public Bitmap Texture { get; set; }
+
 		public Tank(TankProperties props, BTWDirection direction, int x, int y)
 		{
 			this.MaxHP = props.MaxHP;
@@ -22,6 +26,7 @@ namespace BTW
 			this.Projectile = props.Projectile;
 			this.Direction = direction;
 			this.HP = this.MaxHP;
+			this.ShotCooldown = props.ShotCooldown;
 			
 			this.Rectangle = new BTWRectangle(new BTWPoint(x,y), props.Width, props.Height);
 		}
