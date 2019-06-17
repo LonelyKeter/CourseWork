@@ -43,10 +43,10 @@ namespace BTWLib.Logic
 					result.Pos = this.Pos + new BTWPoint(this.Width / 2 - result.Width/2, this.Height + 1);
 					break;
 				case BTWDirection.Up:
-					result.Pos = this.Pos + new BTWPoint(this.Width / 2 - result.Width / 2, -1);
+					result.Pos = this.Pos + new BTWPoint(this.Width / 2 - result.Width / 2, -(result.Height));
 					break;
 				case BTWDirection.Left:
-					result.Pos = this.Pos + new BTWPoint(-1, this.Height / 2 - result.Height / 2);
+					result.Pos = this.Pos + new BTWPoint(-result.Width, this.Height / 2 - result.Height / 2);
 					break;
 				case BTWDirection.Right:
 					result.Pos = this.Pos + new BTWPoint(this.Width + 1, this.Height / 2 - result.Height / 2);

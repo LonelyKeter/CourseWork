@@ -25,19 +25,23 @@ namespace BTW
 			handler.CurruntOnPaint += handler.GameOnPaint;
 			handler.CurrentLoopHandler = handler.GameLoopHandler;
 
-			handler.Map.AddNode(new Space(50,50,600, 600));
+			handler.Walls = new List<Space>();
+			handler.AIs = new List<AIController>();
+			handler.Projectiles = new List<Projectile>();
 
-			NormalTank tank = new NormalTank(TankProperties.Normal, BTWDirection.Up, 400, 400);
+			handler.Walls.Add(new Space(0, 0, 600, 50));
+			handler.Walls.Add(new Space(0, 50, 50, 550));
+			handler.Walls.Add(new Space(550, 50, 50, 550));
+			handler.Walls.Add(new Space(0, 550, 600, 50));
+			handler.Walls.Add(new Space(275, 0, 50, 300));
+
+			NormalTank tank = new NormalTank(TankProperties.Normal, BTWDirection.Up, 350, 350);
 			tank.Texture = Textures.NormalTank_1;
-			handler.Player = new Player(tank , 0, 30);
+			handler.Player = new PlayerController(tank, 0);
 
-			Bitmap MapText = new Bitmap(1280, 720);
-			Graphics g = Graphics.FromImage(MapText);
-			g.DrawRectangle(Pens.Green, 0, 0, 50, 700);
-			g.DrawRectangle(Pens.Green, 0, 0, 700, 50);
-			g.DrawRectangle(Pens.Green, 650, 0, 50, 700);
-			g.DrawRectangle(Pens.Green, 0, 650, 700, 50);
-			handler.MapTexture = MapText;
+			tank = new NormalTank(TankProperties.Normal, BTWDirection.Up, 200, 200);
+			tank.Texture = Textures.NormalTank_1;
+			handler.AIs.Add(new AIController(tank, 0));
 
 			form = new Form1(120);
 

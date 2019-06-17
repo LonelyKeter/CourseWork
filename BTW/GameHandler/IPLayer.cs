@@ -11,7 +11,6 @@ namespace BTW
 	interface IPLayer
 	{
 		Tank Tank {get;}
-		int CurrentChunkId { get; set; }
 
 		int ShotCooldown { get; set; }
 		BTWDirection MoveDirection { get; set; }

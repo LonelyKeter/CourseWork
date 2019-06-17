@@ -7,13 +7,26 @@ using BTWLib.Logic;
 
 namespace BTW
 {
-	class AI : IAI
+	class AIController : IAI
 	{
 		public Tank Tank { get; protected set; }
 
 		public UnitState PrevState { get; private set; }
 
+		private int TickCounter = 80;
+		private int CurrentTick = 0;
+		private AIOptions CurrentOption = AIOptions.None;
+
 		public int ShotCooldown { get; set; }
+		public int CurrentChunkId { get; set; }
+
+		public AIController(Tank tank, int id)
+		{
+			Tank = tank;
+			ShotCooldown = 0;
+			PrevState = new UnitState() { Pos = tank.Pos.GetCopy(), Direction = tank.Direction };
+			Id = id;
+		}
 
 		public void Move(int step, BTWDirection direction)
 		{
@@ -25,11 +38,24 @@ namespace BTW
 			Tank.Move(step, direction);
 		}
 
-		public int CurrentChunkId { get; set; }
+		public int Id { get; set; }
 
-		public AIOptions Next()
+		public AIOptions Next(List<Space> Map)
 		{
-			return AIOptions.None;
+			CurrentTick--;
+
+			
+
+			if (CurrentTick <= 0)
+			{
+				Random o = new Random(DateTime.Now.Day + DateTime.Now.Millisecond + DateTime.Now.Minute + DateTime.Now.Second);
+
+				CurrentOption = (AIOptions)o.Next(4) + 1;
+
+				CurrentTick = TickCounter;
+			}
+
+			return CurrentOption;
 		}
 
 		public bool Damage(int amount)
@@ -39,8 +65,8 @@ namespace BTW
 
 		public IBTWProjectile Shoot(BTWDirection direction)
 		{
-			if (Tank.ShotCooldown-- > 0) return null;
-			else ShotCooldown = Tank.ShotCooldown;
+			if (ShotCooldown > 0) return null;
+			ShotCooldown = Tank.ShotCooldown;
 
 			return Tank.Shoot(direction);
 		}

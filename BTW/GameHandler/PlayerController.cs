@@ -7,7 +7,7 @@ using BTWLib.Logic;
 
 namespace BTW
 {
-	class Player : IPLayer
+	class PlayerController : IPLayer
 	{
 		public Tank Tank { get; private set;}
 		public int CurrentChunkId { get; set; }
@@ -20,12 +20,11 @@ namespace BTW
 
 		public int ShotCooldown { get; set; }
 
-		public Player(Tank tank, int currentChunkid, int shotCooldown)
+		public PlayerController(Tank tank, int currentChunkid)
 		{
 			Tank = tank;
-			CurrentChunkId = currentChunkid;
 			ShotCooldown = 0;
-			PrevState = new UnitState();
+			PrevState = new UnitState() { Pos = tank.Pos.GetCopy(), Direction = tank.Direction };
 		}
 
 		public void Move(int step, BTWDirection direction)

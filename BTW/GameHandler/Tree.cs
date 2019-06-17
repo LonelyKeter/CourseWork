@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ using BTWLib.Logic;
 
 namespace BTW
 {
-	class Tree<K>
+	class Tree<K> : IEnumerable<K>
 	{
 		List<Node<K>> Nodes = new List<Node<K>>();
 
@@ -22,6 +23,15 @@ namespace BTW
 		}
 
 		public Node<K> this[int index] { get { return Nodes[index]; } }
+
+		public IEnumerator<K> GetEnumerator()
+		{
+			foreach (Node<K> n in Nodes) yield return n.Body; 
+		}
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			return this.GetEnumerator();
+		}
 
 		public class Node<T>
 		{

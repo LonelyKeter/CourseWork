@@ -16,22 +16,25 @@ namespace BTWLib.Logic
 		public int Height { get { return Rectangle.Height; } }
 
 		public abstract uint ID { get; }
-		
+
+		public int OverlapsesX(BTWObject _object)
+		{
+			return Max(this.Pos.X + this.Width, _object.Pos.X + _object.Width) - Min(this.Pos.X, _object.Pos.X) - Abs(this.Pos.X - _object.Pos.X) - Abs(this.Pos.X + this.Width - _object.Pos.X - _object.Width);
+		}
+			
+		public int OverlapsesY(BTWObject _object)
+		{
+			return Max(this.Pos.Y + this.Height, _object.Pos.Y + _object.Height) - Min(this.Pos.Y, _object.Pos.Y) - Abs(this.Pos.Y - _object.Pos.Y) - Abs(this.Pos.Y + this.Height - _object.Pos.Y - _object.Height);
+		}
+
 		public int Overlapses(BTWObject _object)
 		{
-			int Fun(int a, int b, int x, int y)
-			{
-				int d1 = (Abs(x - a) + Abs(x - b) + Abs(y - a) + Abs(y - b)) / 2 - Abs(a - b);
+			int x = OverlapsesX(_object);
+			int y = OverlapsesY(_object);
 
-				return Abs(x - y) - d1;
-			}
+			if (x < 0 || y < 0) return -1;
 
-			int X = Fun(this.Pos.X, this.Pos.X + this.Width, _object.Pos.X, _object.Pos.X + _object.Width);
-			int Y = Fun(this.Pos.Y, this.Pos.Y + this.Height, _object.Pos.Y, _object.Pos.Y + _object.Width);
-
-			if (X < 0 || Y < 0) return -1;
-
-			return X * Y;
+			return x*y;
 		}
 
 		protected BTWObject() { }

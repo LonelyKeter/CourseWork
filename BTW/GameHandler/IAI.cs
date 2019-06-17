@@ -11,10 +11,9 @@ namespace BTW
 	{
 		Tank Tank {get;}
 		int ShotCooldown { get; set; }
-		int CurrentChunkId { get; set; }
 		void Move(int step, BTWDirection direction);
 
-		AIOptions Next();
+		AIOptions Next(List<Space> Map);
 
 		void ReverseMove();
 

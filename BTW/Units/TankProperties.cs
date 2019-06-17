@@ -22,7 +22,7 @@ namespace BTW
 			Speed = 2,
 			Width = 50,
 			Height = 50,
-			ShotCooldown = 30,
+			ShotCooldown = 60,
 		};
 	}
 
