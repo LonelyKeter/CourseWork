@@ -76,6 +76,7 @@
     <Compile Include="GameHandler\AI.cs" />
     <Compile Include="GameHandler\IAI.cs" />
     <Compile Include="GameHandler\IPLayer.cs" />
+    <Compile Include="GameHandler\Level.cs" />
     <Compile Include="GameHandler\LoopHandler.cs" />
     <Compile Include="GameHandler\PlayerController.cs" />
     <Compile Include="GameHandler\SpaceController.cs" />
@@ -128,7 +129,10 @@
       <Name>BTWLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="LevelEditor\" />
+    <Folder Include="Levels\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="IDSheet.txt" />
     <None Include="Resources\Wall_1.jpg" />

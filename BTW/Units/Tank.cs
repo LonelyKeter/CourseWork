@@ -9,6 +9,7 @@ using System.Drawing;
 
 namespace BTW
 {
+	[Serializable]
 	abstract class Tank : BTWUnit
 	{
 		public abstract TankType Type { get; }

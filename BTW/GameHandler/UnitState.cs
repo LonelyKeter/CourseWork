@@ -8,6 +8,7 @@ using BTWLib.Types;
 
 namespace BTW
 {
+	[Serializable]
 	class UnitState
 	{
 		public BTWDirection Direction;

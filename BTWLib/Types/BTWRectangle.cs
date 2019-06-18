@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BTWLib.Types
 {
+	[Serializable]
 	public class BTWRectangle
 	{
 		public BTWPoint LU { get; set; }

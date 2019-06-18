@@ -7,6 +7,7 @@ using BTWLib.Logic;
 
 namespace BTW
 {
+	[Serializable]
 	class PlayerController : IPLayer
 	{
 		public Tank Tank { get; private set;}
@@ -56,7 +57,7 @@ namespace BTW
 			Tank.Pos = PrevState.Pos;
 		}
 
-		private void RotateTexture(BTWDirection direction)
+		public void RotateTexture(BTWDirection direction)
 		{
 			if (direction == BTWDirection.None || Tank.Direction == direction ) return;
 

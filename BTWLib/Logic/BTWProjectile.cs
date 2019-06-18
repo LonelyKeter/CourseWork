@@ -7,6 +7,7 @@ using BTWLib.Types;
 
 namespace BTWLib.Logic
 {
+	[Serializable]
 	public abstract class BTWProjectile : BTWObject, IBTWProjectile, IBTWObject
 	{
 		public int Damage { get; set; }

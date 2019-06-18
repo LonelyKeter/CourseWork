@@ -17,8 +17,7 @@ namespace Test
 		/// </summary>
 		static void Main()
 		{
-			Application.EnableVisualStyles();
-			Application.Run(new Tes());
+			List<int> a;
 		}
 
 		class m : BTWObject

@@ -7,17 +7,32 @@ using System.Threading.Tasks;
 using BTWLib.Logic;
 using System.Windows.Forms;
 using BTWLib.Types;
+using BTWLib;
 
 namespace BTW
 {
+	public enum GameState { Menu,Game,Pause,Score}
+
+
 	class LoopHandler
 	{	
 		public Action CurrentLoopHandler;
 		public KeyEventHandler CurrentKeyDown;
 		public KeyEventHandler CurrentKeyUp;
-		public MouseEventArgs CurrentMouseDown;
-		public MouseEventArgs CurrentMouseUp;
-		public PaintEventHandler CurruntOnPaint;
+		public MouseEventHandler CurrentMouseDown;
+		public MouseEventHandler CurrentMouseUp;
+		public PaintEventHandler CurrentOnPaint;
+
+		private GameState currentState = GameState.Menu;
+		private void Unsubscribe()
+		{
+			switch (currentState)
+			{
+				case GameState.Menu:
+					
+					return;
+			}
+		}
 
 		public LoopHandler()
 		{
@@ -32,14 +47,23 @@ namespace BTW
 		{
 
 		}
+		public void InitGame(string levelpath)
+		{
+			Unsubscribe();
+
+			this.CurrentKeyDown = GameKeyDown;
+			this.CurrentKeyUp = GameKeyUp;
+			this.CurrentLoopHandler = GameLoopHandler;
+			this.CurrentOnPaint = GameOnPaint;
+		}
 
 		#region GameLoop
-		public List<Space> Walls;
+		public List<Space> Walls = new List<Space>();
 		public PlayerController Player;
-		public List<AIController> AIs;
-		public List<Projectile> Projectiles;
+		public List<AIController> AIs = new List<AIController>();
+		public List<Projectile> Projectiles = new List<Projectile>();
 
-		TextureBrush WallBrush = new TextureBrush(Textures.Wall_1, new Rectangle(0, 0, 50, 50));
+		TextureBrush WallBrush;
 		public Bitmap LastFrame = new Bitmap(1280, 720);
 		Graphics g;
 
@@ -69,7 +93,7 @@ namespace BTW
 		{
 			foreach (AIController ai in AIs)
 			{
-				AIOptions next = ai.Next(Walls);
+				AIOptions next = ai.Next(Walls, Player);
 
 				switch (next)
 				{
@@ -235,6 +259,31 @@ namespace BTW
 			}
 
 			e.Graphics.DrawImage(LastFrame, 0, 0);
+		}
+
+		public void GetLevel(Level level)
+		{
+			Player = level?.Player;
+			AIs = level.AIs;
+			Walls = level.Walls;
+			
+			foreach (AIController Ai in AIs) Ai.Tank.Texture = level.AITexture;
+			WallBrush = new TextureBrush(level.WallTexture, System.Drawing.Drawing2D.WrapMode.Tile);
+		}
+		public void GetLevel(string filepath)
+		{
+			Level level = Level.GetLevel(filepath);
+			GetLevel(level);
+		}
+
+		public void LinkForm(BTWForm form)
+		{
+			form.LoopTicked += CurrentLoopHandler;
+			form.MouseDown += CurrentMouseDown;
+			form.MouseUp += CurrentMouseUp;
+			form.KeyDown += CurrentKeyDown;
+			form.KeyUp += CurrentKeyUp;
+			form.Paint += CurrentOnPaint;
 		}
 		#endregion
 

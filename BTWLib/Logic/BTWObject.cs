@@ -8,6 +8,7 @@ using BTWLib.Types;
 
 namespace BTWLib.Logic
 {
+	[Serializable]
 	public abstract class BTWObject : IBTWObject
 	{
 		public BTWRectangle Rectangle { get; protected set;}

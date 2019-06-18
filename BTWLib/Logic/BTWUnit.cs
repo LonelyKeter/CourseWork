@@ -8,6 +8,7 @@ using BTWLib.Types;
 
 namespace BTWLib.Logic
 {
+	[Serializable]
 	public abstract class BTWUnit : BTWObject, IBTWUnit
 	{
 		public int MaxHP { get; set; } 

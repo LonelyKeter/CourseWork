@@ -13,7 +13,7 @@ namespace BTW
 		int ShotCooldown { get; set; }
 		void Move(int step, BTWDirection direction);
 
-		AIOptions Next(List<Space> Map);
+		AIOptions Next(List<Space> Map, PlayerController player);
 
 		void ReverseMove();
 

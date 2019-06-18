@@ -8,6 +8,7 @@ using BTWLib.Types;
 
 namespace BTW
 {
+	[Serializable]
 	abstract class Projectile : BTWProjectile
 	{
 		public abstract ProjectileType Type { get; }

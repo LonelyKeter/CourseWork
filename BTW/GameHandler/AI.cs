@@ -7,6 +7,7 @@ using BTWLib.Logic;
 
 namespace BTW
 {
+	[Serializable]
 	class AIController : IAI
 	{
 		public Tank Tank { get; protected set; }
@@ -40,11 +41,118 @@ namespace BTW
 
 		public int Id { get; set; }
 
-		public AIOptions Next(List<Space> Map)
+		public AIOptions Next(List<Space> Map, PlayerController player)
 		{
 			CurrentTick--;
 
-			
+			int difY = Tank.Pos.Y - player.Tank.Pos.Y;
+
+			if (Math.Abs(difY) < player.Tank.Height / 2)
+			{
+				int dif = Tank.Pos.X - player.Tank.Pos.X;
+
+				if (dif > 0)
+				{
+					bool flag = true;
+
+					foreach (Space w in Map)
+					{
+						int wallPlayer = w.Pos.X - player.Tank.Pos.X;
+
+						if (wallPlayer > 0 && wallPlayer < dif)
+							if (w.Height + w.Pos.Y > Tank.Pos.Y + Tank.Height / 2 - 1) 
+							{
+								flag = false;
+								break;
+							} 
+					}
+
+					if (flag)
+					{
+						this.Tank.Direction = BTWDirection.Left; 
+						RotateTexture(BTWDirection.Left);
+						return AIOptions.Shoot;
+					}
+				}
+				else
+				{
+					bool flag = true;
+
+					foreach (Space w in Map)
+					{
+						int wallPlayer = w.Pos.X - player.Tank.Pos.X;
+
+						if (wallPlayer < 0 && wallPlayer > dif)
+							if (w.Height + w.Pos.Y > Tank.Pos.Y + Tank.Height / 2 - 1) 
+							{
+								flag = false;
+								break;
+							} 
+					}
+
+					if (flag)
+					{
+						this.Tank.Direction = BTWDirection.Right;
+						RotateTexture(BTWDirection.Right);
+						return AIOptions.Shoot;
+					}
+				}								
+			}
+
+			int difX = Tank.Pos.X - player.Tank.Pos.X;
+
+			if (Math.Abs(difX) < player.Tank.Height / 2)
+			{
+				int dif = Tank.Pos.Y - player.Tank.Pos.Y;
+
+				if (dif > 0)
+				{
+					bool flag = true;
+
+					foreach (Space w in Map)
+					{
+						int wallPlayer = w.Pos.Y - player.Tank.Pos.Y;
+
+						if (wallPlayer > 0 && wallPlayer < dif)
+							if (w.Width + w.Pos.X > Tank.Pos.X + Tank.Width/ 2 - 1)
+							{
+								flag = false;
+								break;
+							}
+					}
+
+					if (flag)
+					{
+						this.Tank.Direction = BTWDirection.Up;
+						RotateTexture(BTWDirection.Up);
+						return AIOptions.Shoot;
+					}
+				}
+				else
+				{
+					bool flag = true;
+
+					foreach (Space w in Map)
+					{
+						int wallPlayer = w.Pos.Y - player.Tank.Pos.Y;
+
+						if (wallPlayer < 0 && wallPlayer > dif)
+							if (w.Width+ w.Pos.X > Tank.Pos.X + Tank.Width/ 2 - 1)
+							{
+								flag = false;
+								break;
+							}
+					}
+
+					if (flag)
+					{
+						this.Tank.Direction = BTWDirection.Down;
+						RotateTexture(BTWDirection.Down);
+						return AIOptions.Shoot;
+					}
+
+				}
+			}
 
 			if (CurrentTick <= 0)
 			{
@@ -76,7 +184,7 @@ namespace BTW
 			Tank.Pos = PrevState.Pos;
 		}
 
-		private void RotateTexture(BTWDirection direction)
+		public void RotateTexture(BTWDirection direction)
 		{
 			if (direction == BTWDirection.None || Tank.Direction == direction) return;
 

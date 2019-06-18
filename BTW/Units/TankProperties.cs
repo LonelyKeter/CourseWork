@@ -7,6 +7,7 @@ using BTWLib.Logic;
 
 namespace BTW
 {	
+	[Serializable]
 	struct TankProperties
 	{
 		public int MaxHP;

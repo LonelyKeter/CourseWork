@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace BTWLib.Types
 {
+	[Serializable]
 	public class BTWPoint
 	{
 		public int X { get; protected set; }

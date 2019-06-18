@@ -7,6 +7,7 @@ using BTWLib.Logic;
 
 namespace BTW
 {
+	[Serializable]
 	class NormalProjectile : Projectile
 	{
 		public override uint ID { get; } = (uint)ProjectileId.Normal;

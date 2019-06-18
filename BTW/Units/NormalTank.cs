@@ -7,6 +7,7 @@ using BTWLib.Logic;
 
 namespace BTW
 {
+	[Serializable]
 	class NormalTank : Tank
 	{
 		public override TankType Type { get; } = TankType.Normal;
