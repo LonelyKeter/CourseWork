@@ -7,18 +7,9 @@ using BTWLib.Logic;
 
 namespace BTW
 {
-	interface IAI
+	interface IAIController : IUnitController
 	{
-		Tank Tank {get;}
-		int ShotCooldown { get; set; }
-		void Move(int step, BTWDirection direction);
-
 		AIOptions Next(List<Space> Map, PlayerController player);
-
-		void ReverseMove();
-
-		bool Damage(int amount);
-		IBTWProjectile Shoot(BTWDirection direction);
 	}
 
 	public enum AIOptions

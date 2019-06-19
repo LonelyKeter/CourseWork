@@ -74,8 +74,9 @@
     </Compile>
     <Compile Include="GameControls\GameButton.cs" />
     <Compile Include="GameHandler\AI.cs" />
-    <Compile Include="GameHandler\IAI.cs" />
+    <Compile Include="GameHandler\IAIController.cs" />
     <Compile Include="GameHandler\IPLayer.cs" />
+    <Compile Include="GameHandler\IUnitController.cs" />
     <Compile Include="GameHandler\Level.cs" />
     <Compile Include="GameHandler\LoopHandler.cs" />
     <Compile Include="GameHandler\PlayerController.cs" />

@@ -8,19 +8,10 @@ using System.Drawing;
 
 namespace BTW
 {
-	interface IPLayer
-	{
-		Tank Tank {get;}
-
-		int ShotCooldown { get; set; }
+	interface IPLayer : IUnitController
+	{	
 		BTWDirection MoveDirection { get; set; }
 
-		bool IsShooting { get; set; }
-
-		void Move(int step, BTWDirection direction);
-		IBTWProjectile Shoot(BTWDirection direction);
-		bool Damage(int amount);
-
-		void ReverseMove();
+		bool IsShooting { get; set; }	
 	}
 }

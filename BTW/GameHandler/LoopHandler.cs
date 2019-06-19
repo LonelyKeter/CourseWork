@@ -98,16 +98,16 @@ namespace BTW
 				switch (next)
 				{
 					case AIOptions.Down:
-						ai.Move(Player.Tank.Speed, BTWDirection.Down);
+						ai.Move(ai.Tank.Speed, BTWDirection.Down);
 						break;
 					case AIOptions.Up:
-						ai.Move(Player.Tank.Speed, BTWDirection.Up);
+						ai.Move(ai.Tank.Speed, BTWDirection.Up);
 						break;
 					case AIOptions.Left:
-						ai.Move(Player.Tank.Speed, BTWDirection.Left);
+						ai.Move(ai.Tank.Speed, BTWDirection.Left);
 						break;
 					case AIOptions.Right:
-						ai.Move(Player.Tank.Speed, BTWDirection.Right);
+						ai.Move(ai.Tank.Speed, BTWDirection.Right);
 						break;
 					case AIOptions.Shoot:
 						IBTWProjectile projectile = ai.Shoot(ai.Tank.Direction);
@@ -163,7 +163,7 @@ namespace BTW
 					{
 						Ai.Damage(Projectiles[i].Damage);
 						Projectiles.RemoveAt(i);
-						continue;
+						break;
 					}
 			}
 

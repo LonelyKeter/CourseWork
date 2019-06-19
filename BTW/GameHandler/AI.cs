@@ -8,13 +8,13 @@ using BTWLib.Logic;
 namespace BTW
 {
 	[Serializable]
-	class AIController : IAI
+	class AIController : IAIController
 	{
 		public Tank Tank { get; protected set; }
 
 		public UnitState PrevState { get; private set; }
 
-		private int TickCounter = 80;
+		private int TickCounter = 120;
 		private int CurrentTick = 0;
 		private AIOptions CurrentOption = AIOptions.None;
 
@@ -41,118 +41,123 @@ namespace BTW
 
 		public int Id { get; set; }
 
+		//public AIOptions Next(List<Space> Map, PlayerController player)
+		//{
+		//	return AIOptions.Shoot;
+		//}
 		public AIOptions Next(List<Space> Map, PlayerController player)
 		{
 			CurrentTick--;
 
-			int difY = Tank.Pos.Y - player.Tank.Pos.Y;
+			//int difY = Tank.Pos.Y - player.Tank.Pos.Y;
 
-			if (Math.Abs(difY) < player.Tank.Height / 2)
-			{
-				int dif = Tank.Pos.X - player.Tank.Pos.X;
+			//if (Math.Abs(difY) < player.Tank.Height / 2)
+			//{
+			//	int dif = Tank.Pos.X - player.Tank.Pos.X;
 
-				if (dif > 0)
-				{
-					bool flag = true;
+			//	if (dif > 0)
+			//	{
+			//		bool flag = true;
 
-					foreach (Space w in Map)
-					{
-						int wallPlayer = w.Pos.X - player.Tank.Pos.X;
+			//		foreach (Space w in Map)
+			//		{
+			//			int wallPlayer = w.Pos.X - player.Tank.Pos.X;
 
-						if (wallPlayer > 0 && wallPlayer < dif)
-							if (w.Height + w.Pos.Y > Tank.Pos.Y + Tank.Height / 2 - 1) 
-							{
-								flag = false;
-								break;
-							} 
-					}
+			//			if (wallPlayer > 0 && wallPlayer < dif)
+			//				if (w.Height + w.Pos.Y > Tank.Pos.Y + Tank.Height / 2 - 1)
+			//				{
+			//					flag = false;
+			//					break;
+			//				}
+			//		}
 
-					if (flag)
-					{
-						this.Tank.Direction = BTWDirection.Left; 
-						RotateTexture(BTWDirection.Left);
-						return AIOptions.Shoot;
-					}
-				}
-				else
-				{
-					bool flag = true;
+			//		if (flag)
+			//		{
+			//			RotateTexture(BTWDirection.Left);
+			//			CurrentTick = 0;
+			//			return AIOptions.Shoot;
+			//		}
+			//	}
+			//	else
+			//	{
+			//		bool flag = true;
 
-					foreach (Space w in Map)
-					{
-						int wallPlayer = w.Pos.X - player.Tank.Pos.X;
+			//		foreach (Space w in Map)
+			//		{
+			//			int wallPlayer = w.Pos.X - player.Tank.Pos.X;
 
-						if (wallPlayer < 0 && wallPlayer > dif)
-							if (w.Height + w.Pos.Y > Tank.Pos.Y + Tank.Height / 2 - 1) 
-							{
-								flag = false;
-								break;
-							} 
-					}
+			//			if (wallPlayer < 0 && wallPlayer > dif)
+			//				if (w.Height + w.Pos.Y > Tank.Pos.Y + Tank.Height / 2 - 1)
+			//				{
+			//					flag = false;
+			//					break;
+			//				}
+			//		}
 
-					if (flag)
-					{
-						this.Tank.Direction = BTWDirection.Right;
-						RotateTexture(BTWDirection.Right);
-						return AIOptions.Shoot;
-					}
-				}								
-			}
+			//		if (flag)
+			//		{
 
-			int difX = Tank.Pos.X - player.Tank.Pos.X;
+			//			RotateTexture(BTWDirection.Right);
+			//			CurrentTick = 0;
+			//			return AIOptions.Shoot;
+			//		}
+			//	}
+			//}
 
-			if (Math.Abs(difX) < player.Tank.Height / 2)
-			{
-				int dif = Tank.Pos.Y - player.Tank.Pos.Y;
+			//int difX = Tank.Pos.X - player.Tank.Pos.X;
 
-				if (dif > 0)
-				{
-					bool flag = true;
+			//if (Math.Abs(difX) < player.Tank.Width / 2)
+			//{
+			//	int dif = Tank.Pos.Y - player.Tank.Pos.Y;
 
-					foreach (Space w in Map)
-					{
-						int wallPlayer = w.Pos.Y - player.Tank.Pos.Y;
+			//	if (dif > 0)
+			//	{
+			//		bool flag = true;
 
-						if (wallPlayer > 0 && wallPlayer < dif)
-							if (w.Width + w.Pos.X > Tank.Pos.X + Tank.Width/ 2 - 1)
-							{
-								flag = false;
-								break;
-							}
-					}
+			//		foreach (Space w in Map)
+			//		{
+			//			int wallPlayer = w.Pos.Y - player.Tank.Pos.Y;
 
-					if (flag)
-					{
-						this.Tank.Direction = BTWDirection.Up;
-						RotateTexture(BTWDirection.Up);
-						return AIOptions.Shoot;
-					}
-				}
-				else
-				{
-					bool flag = true;
+			//			if (wallPlayer > 0 && wallPlayer < dif)
+			//				if (w.Width + w.Pos.X > Tank.Pos.X + Tank.Width / 2 - 1)
+			//				{
+			//					flag = false;
+			//					break;
+			//				}
+			//		}
 
-					foreach (Space w in Map)
-					{
-						int wallPlayer = w.Pos.Y - player.Tank.Pos.Y;
+			//		if (flag)
+			//		{
+			//			RotateTexture(BTWDirection.Up);
+			//			CurrentTick = 0;
+			//			return AIOptions.Shoot;
+			//		}
+			//	}
+			//	else
+			//	{
+			//		bool flag = true;
 
-						if (wallPlayer < 0 && wallPlayer > dif)
-							if (w.Width+ w.Pos.X > Tank.Pos.X + Tank.Width/ 2 - 1)
-							{
-								flag = false;
-								break;
-							}
-					}
+			//		foreach (Space w in Map)
+			//		{
+			//			int wallPlayer = w.Pos.Y - player.Tank.Pos.Y;
 
-					if (flag)
-					{
-						this.Tank.Direction = BTWDirection.Down;
-						RotateTexture(BTWDirection.Down);
-						return AIOptions.Shoot;
-					}
+			//			if (wallPlayer < 0 && wallPlayer > dif)
+			//				if (w.Width + w.Pos.X > Tank.Pos.X + Tank.Width / 2 - 1)
+			//				{
+			//					flag = false;
+			//					break;
+			//				}
+			//		}
 
-				}
-			}
+			//		if (flag)
+			//		{
+			//			RotateTexture(BTWDirection.Down);
+			//			CurrentTick = 0;
+			//			return AIOptions.Shoot;
+			//		}
+
+			//	}
+			//}
 
 			if (CurrentTick <= 0)
 			{

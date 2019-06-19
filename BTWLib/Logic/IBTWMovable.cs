@@ -8,8 +8,6 @@ namespace BTWLib.Logic
 {
 	public interface IBTWMovable
 	{
-		int Speed { get; set; }
-
 		void Move(int dist, BTWDirection direction);
 	}
 	

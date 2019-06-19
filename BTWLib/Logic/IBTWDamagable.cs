@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BTWLib.Logic
 {
-	public interface IBTWProjectile : IBTWMoving, IBTWObject, ICloneable
+	public interface IBTWDamagable
 	{
-		int Damage { get; set; }
+		int HP { get; }
+		bool Damage(int amount);
 	}
 }

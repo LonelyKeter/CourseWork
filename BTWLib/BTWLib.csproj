@@ -87,7 +87,9 @@
     <Compile Include="Logic\BTWObject.cs" />
     <Compile Include="Logic\BTWProjectile.cs" />
     <Compile Include="Logic\BTWUnit.cs" />
+    <Compile Include="Logic\IBTWDamagable.cs" />
     <Compile Include="Logic\IBTWMovable.cs" />
+    <Compile Include="Logic\IBTWMoving.cs" />
     <Compile Include="Logic\IBTWObject.cs" />
     <Compile Include="Logic\IBTWProjectile.cs" />
     <Compile Include="Logic\IBTWTerrain.cs" />

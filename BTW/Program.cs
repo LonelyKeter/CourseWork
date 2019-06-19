@@ -25,7 +25,7 @@ namespace BTW
 			handler.LinkForm(form = new BTWForm(120));
 			Application.Run(form);
 
-			//FFF();
+			//	FFF();
 		}
 
 		static int Fun(int a, int b, int x, int y)
@@ -38,6 +38,10 @@ namespace BTW
 		{
 			Level level = Level.GetLevel(@"C:\Users\LonelyKeter\source\repos\CourseWork\BTW\Levels\test1.bin");
 
+			
+		
+
+			Console.Write(level.AIs.Count);
 			level.GetView();
 
 			//Level level = new Level(new Size(1280, 720));

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BTWLib.Logic
 {
-	public interface IBTWProjectile : IBTWMoving, IBTWObject, ICloneable
+	public interface IBTWMoving : IBTWMovable
 	{
-		int Damage { get; set; }
+		int Speed { get; set; }
+		BTWDirection Direction { get; set; }
 	}
 }
